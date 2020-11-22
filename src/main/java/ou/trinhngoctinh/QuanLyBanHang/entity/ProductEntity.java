@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class ProductEntity {
     @Id  //primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)//id tự động tăng
-    private int id;
+    private Integer id;
 
     @Column(name = "product_name")
     private String productName;
