@@ -12,5 +12,7 @@ public class ProductEntity {
 
     @Column(name = "product_name")
     private String productName;
+
+
 }
 
