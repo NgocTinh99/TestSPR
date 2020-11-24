@@ -16,17 +16,26 @@ public class UserEntity {
     @Column(name ="user_name")
     private String userName;
 
+    @Column(name="user_password")
+    private String userPassword;
+
+    @Column(name ="customer_name")
+    private String customerName;
+
     @Column(name="user_address")
     private String userAddress;
 
     @Column(name="user_phone")
     private Integer userPhone;
 
-    @Column(name="user_email")
-    private String userEmail;
+
 
     @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Collection<OrderEntity> orderEntities;
+
+    @OneToOne
+    @JoinColumn(name="cart_id")
+    private CartEntity cartEntity;
 }
