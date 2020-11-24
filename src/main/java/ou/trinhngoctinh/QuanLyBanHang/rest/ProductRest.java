@@ -19,7 +19,7 @@ public class ProductRest {
     //Gọi xuống repository -> lấy dl từ dtb rồi trả lại service=> trả về cho rest => response
     @GetMapping("/product/find_product_by_id")
     public ResponseEntity<?> findProductById(@RequestParam("id") Integer id){
-        return ResponseEntity.ok(productService.findProductById(id));
+        return ResponseEntity.ok("");
     }
 
 }

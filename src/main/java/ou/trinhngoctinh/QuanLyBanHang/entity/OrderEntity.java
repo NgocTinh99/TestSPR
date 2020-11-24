@@ -34,13 +34,9 @@ public class OrderEntity {
     private Integer totalBill;
 
     @ManyToOne
-    @JoinColumn(name="user_id1")
+    @JoinColumn(name="user_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private UserEntity userEntity1;
-
-    @OneToOne
-    @JoinColumn(name="user_id2")
-    private UserEntity userEntity2;
+    private UserEntity userEntity;
 
 }

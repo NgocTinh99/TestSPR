@@ -33,14 +33,11 @@ public class ProductEntity {
     private String productInfomations;
 
     @ManyToOne
-    @JoinColumn(name="product_Category_id1")
+    @JoinColumn(name="product_category_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private ProductCategoryEntity productCategoryEntity1;
+    private ProductCategoryEntity productCategoryEntity;
 
-    @OneToOne
-    @JoinColumn(name="product_category_id2")
-    private ProductCategoryEntity productCategoryEntity2;
 
 }
 
