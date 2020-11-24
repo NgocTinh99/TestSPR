@@ -9,30 +9,23 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table (name="cart")
+@Table(name="product_category")
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartEntity {
+public class ProductCategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="customer_name")
-    private String customerName;
-
-    @Column(name="product_name")
-    private String productName;
-
     @Column(name="product_category_name")
     private String productCategoryName;
 
-    @Column(name="amount_items")
-    private Integer amountItems;
+    @Column(name="product_category_note")
+    private String productCategoryNote;
 
-    @Column(name="total_bill")
-    private Integer totalBill;
+    @OneToMany(mappedBy="productCategoryEntity", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Collection<ProductEntity> productEntities;
 
-    @OneToOne
-    @JoinColumn(name="user_id")
-    private UserEntity userEntity;
 }
