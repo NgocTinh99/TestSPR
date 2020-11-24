@@ -1,6 +1,8 @@
 package ou.trinhngoctinh.QuanLyBanHang.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import java.util.Date;
 
 @Entity
 @Table (name="order")
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,16 +42,5 @@ public class OrderEntity {
     @OneToOne
     @JoinColumn(name="user_id2")
     private UserEntity userEntity2;
-
-    @ManyToOne
-    @JoinColumn(name="product_id")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private ProductEntity productEntity;
-
-    @OneToMany(mappedBy = "OrderEntity", cascade = CascadeType.ALL)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Collection<ProductEntity> productEntities;
 
 }
