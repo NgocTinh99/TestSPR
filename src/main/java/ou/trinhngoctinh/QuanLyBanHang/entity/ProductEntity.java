@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table (name="product")
@@ -29,6 +30,9 @@ public class ProductEntity {
     @Column(name="product_price")
     private Integer productPrice;
 
+    @Column(name="product_infomations")
+    private String productInfomations;
+
     @ManyToOne
     @JoinColumn(name="product_repository_id1")
     @EqualsAndHashCode.Exclude
@@ -38,5 +42,27 @@ public class ProductEntity {
     @OneToOne
     @JoinColumn(name="product_repository_id2")
     private ProductRepositoryEntity productRepositoryEntity2;
+
+    @OneToMany(mappedBy = "productEntity", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Collection<OrderEntity> orderEntities;
+
+    @ManyToOne
+    @JoinColumn(name="order_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private OrderEntity orderEntity;
+
+    @OneToMany(mappedBy = "productEntity", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Collection<CartEntity> cartEntities;
+
+    @ManyToOne
+    @JoinColumn(name="cart_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private CartEntity cartEntity;
 }
 
