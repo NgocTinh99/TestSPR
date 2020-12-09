@@ -1,45 +1,29 @@
 package ou.trinhngoctinh.QuanLyBanHang.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
+import lombok.*;
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table (name="user")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     @Column(name ="user_name")
     private String userName;
-
     @Column(name="user_password")
     private String userPassword;
-
     @Column(name ="customer_name")
     private String customerName;
-
     @Column(name="user_address")
     private String userAddress;
-
     @Column(name="user_phone")
-    private Integer userPhone;
+    private int userPhone;
 
-
-
-    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Collection<OrderEntity> orderEntities;
-
-    @OneToOne
-    @JoinColumn(name="cart_id")
-    private CartEntity cartEntity;
 }

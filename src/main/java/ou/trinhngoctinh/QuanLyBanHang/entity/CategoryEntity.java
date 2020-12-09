@@ -3,22 +3,19 @@ package ou.trinhngoctinh.QuanLyBanHang.entity;
 import lombok.*;
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Date;
 
 @Entity
-@Table (name="orderr")
+@Table(name="category")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class OrderEntity {
+public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name="date_sell")
-    private Date dateSell;
-    @Column(name ="user_id")
-    private Integer userId;
-    @Column(name="product_id")
-    private Integer productId;
+    @Column(name="category_name")
+    private String categoryName;
+    @Column(name="category_descrition")
+    private String categoryDescrition;
 }
