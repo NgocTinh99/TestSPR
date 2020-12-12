@@ -1,10 +1,6 @@
 package ou.trinhngoctinh.QuanLyBanHang.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
+import lombok.*;
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -12,27 +8,18 @@ import java.util.Collection;
 @Table (name="cart")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class CartEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name="customer_name")
-    private String customerName;
-
-    @Column(name="product_name")
-    private String productName;
-
-    @Column(name="product_category_name")
-    private String productCategoryName;
-
-    @Column(name="amount_items")
-    private Integer amountItems;
-
+    @Column(name="product_id")
+    private Integer productId;
+    @Column(name="product_quantity")
+    private int productQuantity;
     @Column(name="total_bill")
-    private Integer totalBill;
-
-    @OneToOne
-    @JoinColumn(name="user_id")
-    private UserEntity userEntity;
+    private double totalBill;
+    @Column(name="user_id")
+    private Integer userId;
 }
