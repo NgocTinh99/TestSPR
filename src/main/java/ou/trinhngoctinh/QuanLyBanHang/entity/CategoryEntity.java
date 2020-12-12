@@ -13,7 +13,7 @@ import java.util.Collection;
 public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     @Column(name="category_name")
     private String categoryName;
     @Column(name="category_descrition")

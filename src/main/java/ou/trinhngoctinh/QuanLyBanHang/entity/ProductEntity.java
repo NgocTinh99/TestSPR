@@ -20,6 +20,6 @@ public class ProductEntity {
     @Column(name="product_descrition")
     private String productDescrition;
     @Column(name = "category_id")   //khóa liên kết Category
-    private Integer categoryId;
+    private int categoryId;
 }
 
