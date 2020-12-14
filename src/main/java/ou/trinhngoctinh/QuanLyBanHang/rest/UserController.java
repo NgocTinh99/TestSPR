@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ou.trinhngoctinh.QuanLyBanHang.ServiceImpl.UserServiceImpl;
 import ou.trinhngoctinh.QuanLyBanHang.entity.UserEntity;
 import ou.trinhngoctinh.QuanLyBanHang.request.AddUserRequest;
+import ou.trinhngoctinh.QuanLyBanHang.request.LoginRequest;
 import ou.trinhngoctinh.QuanLyBanHang.service.UserService;
 import java.util.List;
 
@@ -29,12 +29,23 @@ public class UserController {
             return new ResponseEntity<UserEntity>(userEntity, HttpStatus.OK);
         }
     }
-    @PostMapping("/add_user")
+        @PostMapping("/add_user")
     public ResponseEntity<?> addUser(@RequestBody AddUserRequest userEntity) {
         UserEntity userEntity1 = userService.addUser(userEntity);
-        if(userEntity1 == null)
-            return ResponseEntity.ok("User đã tồn tại!");
-        return new ResponseEntity<UserEntity>(userEntity1, HttpStatus.OK);
+        if(userEntity1 == null){
+            if(userEntity.getUserName() == null)
+                return ResponseEntity.ok("Vui lòng không để trống username!");
+            else
+                if(userEntity.getUserPassword() == null)
+                    return ResponseEntity.ok("Vui lòng không để trống password!");
+                else {
+                    if (userEntity.getUserName().length() < 6)
+                            return ResponseEntity.ok("Tên đăng nhập không được nhỏ hơn 6 kí tự!");
+                    if (userEntity.getUserPassword().length() < 8)
+                        return ResponseEntity.ok("Password không được nhỏ hơn 8 kí tự!");
+                }
+        }
+        return ResponseEntity.ok("Đăng ký thành công");
     }
 
     @PutMapping("/update_user")
@@ -52,5 +63,18 @@ public class UserController {
             return ResponseEntity.ok("Không tồn tại user có id: " + id);
         userService.deleteUser(id);
         return ResponseEntity.ok("Xóa thành công user có id:"+ id);
+    }
+
+    @PostMapping("/login_user")
+    public ResponseEntity<?> loginUser(@RequestBody LoginRequest userEntity){
+        UserEntity userEntityLogin = userService.findByUserNameLogin(userEntity.getUserName());
+        if(userEntityLogin == null){
+            return ResponseEntity.ok("Không tồn tại username: "+ userEntity.getUserName());
+        }else {
+            UserEntity userEntity1 = userService.loginUser(userEntity.getUserName(), userEntity.getUserPassword());
+            if (userEntity1 == null)
+                return ResponseEntity.ok("Sai mật khẩu! Đăng nhập không thành công!");
+            return ResponseEntity.ok("Đăng nhập thành công!");
+        }
     }
 }

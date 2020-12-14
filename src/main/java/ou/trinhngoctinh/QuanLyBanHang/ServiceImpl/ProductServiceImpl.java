@@ -2,13 +2,10 @@ package ou.trinhngoctinh.QuanLyBanHang.ServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ou.trinhngoctinh.QuanLyBanHang.entity.CategoryEntity;
 import ou.trinhngoctinh.QuanLyBanHang.entity.ProductEntity;
-import ou.trinhngoctinh.QuanLyBanHang.repository.CategoryRepository;
 import ou.trinhngoctinh.QuanLyBanHang.repository.ProductRepository;
 import ou.trinhngoctinh.QuanLyBanHang.request.AddProductRequest;
 import ou.trinhngoctinh.QuanLyBanHang.service.ProductService;
-
 import java.util.List;
 
 @Service

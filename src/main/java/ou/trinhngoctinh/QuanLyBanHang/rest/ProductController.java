@@ -5,11 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ou.trinhngoctinh.QuanLyBanHang.entity.ProductEntity;
-import ou.trinhngoctinh.QuanLyBanHang.entity.UserEntity;
 import ou.trinhngoctinh.QuanLyBanHang.request.AddProductRequest;
-import ou.trinhngoctinh.QuanLyBanHang.request.AddUserRequest;
 import ou.trinhngoctinh.QuanLyBanHang.service.ProductService;
-
 import java.util.List;
 
 @RestController

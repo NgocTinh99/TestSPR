@@ -2,7 +2,6 @@ package ou.trinhngoctinh.QuanLyBanHang.entity;
 
 import lombok.*;
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Date;
 
 @Entity

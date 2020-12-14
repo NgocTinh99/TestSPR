@@ -2,8 +2,6 @@ package ou.trinhngoctinh.QuanLyBanHang.entity;
 
 import lombok.*;
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Table (name="user")
@@ -25,5 +23,4 @@ public class UserEntity {
     private String userAddress;
     @Column(name="user_phone")
     private int userPhone;
-
 }
