@@ -2,7 +2,6 @@ package ou.trinhngoctinh.QuanLyBanHang.service;
 
 import org.springframework.stereotype.Service;
 import ou.trinhngoctinh.QuanLyBanHang.entity.ProductEntity;
-import ou.trinhngoctinh.QuanLyBanHang.entity.UserEntity;
 import ou.trinhngoctinh.QuanLyBanHang.request.AddProductRequest;
 import java.util.List;
 
